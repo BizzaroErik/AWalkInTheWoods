@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://x72lwmjoqd1w"]
+
+[ext_resource type="Texture2D" uid="uid://cvqwtmh3hiajn" path="res://Assets/dungeon.png" id="1_tn4dr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de67f"]
+texture = ExtResource("1_tn4dr")
+18:19/size_in_atlas = Vector2i(7, 3)
+18:19/0 = 0
+18:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-56, 24, -56, -24, 56, -24, 56, 24)
+
+[resource]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "TerrainGround 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_de67f")

@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var state_machine: Node = $state_machine
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 var look_dir: Vector2 = Vector2.ZERO
 
 #@export var current_tool: DataTypes.Tools = DataTypes.Tools.None

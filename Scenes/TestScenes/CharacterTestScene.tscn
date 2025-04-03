@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv4k60r781nqj"]
+[gd_scene load_steps=3 format=3 uid="uid://bv4k60r781nqj"]
 
 [ext_resource type="PackedScene" uid="uid://djeiegsv2cmxm" path="res://Scenes/Character/Player.tscn" id="1_6nyuh"]
+[ext_resource type="TileSet" uid="uid://x72lwmjoqd1w" path="res://Assets/Tilesets/foreground_tile_set.tres" id="2_5tcfy"]
 
 [node name="CharacterTestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_6nyuh")]
-scale = Vector2(5, 5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+
+[node name="GameTileMap" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="GameTileMap"]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 18, 0, 19, 0, 0, 0, 252, 255, 1, 0, 0, 0, 18, 0, 19, 0, 0, 0, 10, 0, 1, 0, 0, 0, 18, 0, 19, 0, 0, 0, 245, 255, 1, 0, 0, 0, 18, 0, 19, 0, 0, 0)
+tile_set = ExtResource("2_5tcfy")

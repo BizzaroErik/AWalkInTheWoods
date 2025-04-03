@@ -1,16 +1,12 @@
 extends State
 
 @export var idle_state: State
-@export var jumping_state: State
+@export var jump_state: State
 
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 10.0
-const SPEED = 70.0
-const JUMP_VELOCITY = 6.5
-
+var SPEED: float = 95.0
 
 func enter() -> void:
-	set_animation(character.look_dir)
+	sprite.play("run")
 	
 
 func exit() -> void:
@@ -23,28 +19,29 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	var input_dir = _get_input_direction()
-	character.velocity = input_dir * SPEED
-	if character.look_dir != input_dir && input_dir != Vector2.ZERO:
-		set_animation(input_dir)
-		character.look_dir = input_dir
+	var direction := Input.get_axis("left", "right")
+	if direction:
+		character.velocity.x = direction * SPEED
+	else:
+		character.velocity.x = move_toward(character.velocity.x, 0, SPEED)
+	
+	set_animation(character.velocity.x)
 	character.move_and_slide()
 	
-	if character.velocity == Vector2.ZERO:
+	if character.velocity.x == 0:
 		return idle_state
-	else:
-		return null
+	if Input.is_action_just_pressed("jump"):
+		#and (character.jump_count < character.max_jumps):
+		#character.jump_count += 1
+		return jump_state
+	
+	return null
+	#if Input.is_action_just_pressed("dash") and character.can_dash:
+		#character.change_state("dash")
 
-func _get_input_direction():
-	var input_dir := Input.get_vector("left", "right", "up", "down").normalized()
-	set_animation(input_dir)
-	return input_dir
 
-func set_animation(direction) -> void:
-	match direction:
-		Vector2.LEFT:
-			sprite.play("run")
-			sprite.flip_h = true
-		Vector2.RIGHT:
-			sprite.play("run")
-			sprite.flip_h = false
+func set_animation(velocity: float) -> void:
+	if velocity < 0:
+		character.sprite.flip_h = true
+	elif velocity >= 0:
+		character.sprite.flip_h = false

@@ -2,7 +2,6 @@ extends State
 
 @export var idle_state: State
 @export var run_state: State
-@export var fall_state: State
 
 var horizontal_adjust: int = 100
 var max_speed: int = 8000
@@ -13,8 +12,7 @@ var friction: float = 0.22
 var weight: float = 0.3
 
 func enter() -> void:
-	character.velocity.y = -jump_height
-	sprite.play("jump")
+	sprite.play("fall")
 
 func exit() -> void:
 	pass
@@ -34,13 +32,9 @@ func process_physics(delta: float) -> State:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		character.velocity.x = direction * horizontal_adjust
-	else:
-		character.velocity.x = move_toward(character.velocity.x, 0, horizontal_adjust)
 	character.move_and_slide()
 	
-	if character.velocity.y > 0:
-		return fall_state
-	elif character.is_on_floor():
+	if character.is_on_floor():
 		return idle_state
 	else:
 		return null
