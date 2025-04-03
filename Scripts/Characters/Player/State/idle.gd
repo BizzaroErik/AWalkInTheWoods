@@ -4,7 +4,6 @@ extends State
 @export var jump_state: State
 
 func enter() -> void:
-	print(character.look_dir)
 	sprite.play("idle")
 	set_animation(character.look_dir)
 
