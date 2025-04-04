@@ -1,18 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv4k60r781nqj"]
+[gd_scene load_steps=8 format=4 uid="uid://bv4k60r781nqj"]
 
 [ext_resource type="PackedScene" uid="uid://djeiegsv2cmxm" path="res://Scenes/Character/Player.tscn" id="1_6nyuh"]
 [ext_resource type="TileSet" uid="uid://x72lwmjoqd1w" path="res://Assets/Tilesets/foreground_tile_set.tres" id="2_5tcfy"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/camera_2d.gd" id="2_u6bu0"]
+[ext_resource type="Texture2D" uid="uid://13kowwruupp5" path="res://Assets/Backgrounds/ParallaxWoods.png" id="3_0tv4q"]
+[ext_resource type="Texture2D" uid="uid://btsqr4mp7o56" path="res://Assets/Backgrounds/ParallaxWoodsFarForest.png" id="4_map3k"]
+[ext_resource type="Texture2D" uid="uid://b8clo18konh0n" path="res://Assets/Backgrounds/ParallaxWoodsNearForest.png" id="5_0uav4"]
+[ext_resource type="Texture2D" uid="uid://dvtkbpiueyi37" path="res://Assets/Backgrounds/ParallaxWoodsCloseTrees.png" id="6_1v05r"]
 
 [node name="CharacterTestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_6nyuh")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
+position = Vector2(1030, 895)
+scale = Vector2(3, 3)
 
 [node name="GameTileMap" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 18, 0, 19, 0, 0, 0, 252, 255, 1, 0, 0, 0, 18, 0, 19, 0, 0, 0, 10, 0, 1, 0, 0, 0, 18, 0, 19, 0, 0, 0, 245, 255, 1, 0, 0, 0, 18, 0, 19, 0, 0, 0)
+position = Vector2(-2, 0)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAADAA8AAAASABMAAAAKAA8AAAASABMAAAARAA8AAAASABMAAAAYAA8AAAASABMAAAAfAA8AAAASABMAAAAmAA8AAAASABMAAAD8/w8AAAASABMAAAD1/w8AAAASABMAAAAtAA8AAAASABMAAAAtABIAAAASABMAAAAmABIAAAASABMAAAAfABIAAAASABMAAAAYABIAAAASABMAAAARABIAAAASABMAAAAKABIAAAASABMAAAADABIAAAASABMAAAD8/xIAAAASABMAAAD1/xIAAAASABMAAAA=")
 tile_set = ExtResource("2_5tcfy")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Moutain" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(320, 182)
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moutain"]
+position = Vector2(640, 358)
+scale = Vector2(5.33333, 4.5)
+texture = ExtResource("3_0tv4q")
+
+[node name="FarForest" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(320, 182)
+motion_scale = Vector2(0.1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarForest"]
+position = Vector2(640, 358)
+scale = Vector2(5.33333, 4.5)
+texture = ExtResource("4_map3k")
+
+[node name="NearForest" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(319, 182)
+motion_scale = Vector2(0.3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearForest"]
+position = Vector2(640.5, 359)
+scale = Vector2(5.33611, 4.49167)
+texture = ExtResource("5_0uav4")
+
+[node name="ParallaxForeGround" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="ClosestTrees" type="ParallaxLayer" parent="ParallaxForeGround"]
+position = Vector2(319, 182)
+motion_scale = Vector2(2, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxForeGround/ClosestTrees"]
+position = Vector2(640.5, 359)
+scale = Vector2(5.33611, 4.49167)
+texture = ExtResource("6_1v05r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1030, 895)
+scale = Vector2(3, 3)
+offset = Vector2(0, -300)
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.71
+drag_top_margin = 1.0
+drag_right_margin = 0.86
+script = ExtResource("2_u6bu0")
