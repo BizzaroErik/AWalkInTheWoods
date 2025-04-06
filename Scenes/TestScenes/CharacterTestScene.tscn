@@ -55,6 +55,7 @@ texture = ExtResource("5_0uav4")
 layer = 1
 
 [node name="ClosestTrees" type="ParallaxLayer" parent="ParallaxForeGround"]
+visible = false
 position = Vector2(319, 182)
 motion_scale = Vector2(2, 0)
 motion_mirroring = Vector2(1920, 0)
