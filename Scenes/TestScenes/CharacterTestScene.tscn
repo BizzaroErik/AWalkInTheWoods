@@ -4,9 +4,9 @@
 [ext_resource type="TileSet" uid="uid://x72lwmjoqd1w" path="res://Assets/Tilesets/foreground_tile_set.tres" id="2_5tcfy"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/camera_2d.gd" id="2_u6bu0"]
 [ext_resource type="Texture2D" uid="uid://13kowwruupp5" path="res://Assets/Backgrounds/ParallaxWoods.png" id="3_0tv4q"]
-[ext_resource type="Texture2D" uid="uid://btsqr4mp7o56" path="res://Assets/Backgrounds/ParallaxWoodsFarForest.png" id="4_map3k"]
-[ext_resource type="Texture2D" uid="uid://b8clo18konh0n" path="res://Assets/Backgrounds/ParallaxWoodsNearForest.png" id="5_0uav4"]
-[ext_resource type="Texture2D" uid="uid://dvtkbpiueyi37" path="res://Assets/Backgrounds/ParallaxWoodsCloseTrees.png" id="6_1v05r"]
+[ext_resource type="Texture2D" uid="uid://cnh27oxs64gap" path="res://Assets/Backgrounds/extended_far_forest.png" id="4_suxq5"]
+[ext_resource type="Texture2D" uid="uid://d0078pfbwast4" path="res://Assets/Backgrounds/extended_near_forest.png" id="5_mkvet"]
+[ext_resource type="Texture2D" uid="uid://ou4p25lbwlem" path="res://Assets/Backgrounds/extended_foreground.png" id="6_75qb5"]
 
 [node name="CharacterTestScene" type="Node2D"]
 
@@ -36,34 +36,35 @@ texture = ExtResource("3_0tv4q")
 [node name="FarForest" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(320, 182)
 motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarForest"]
-position = Vector2(640, 358)
+position = Vector2(1600, 358)
 scale = Vector2(5.33333, 4.5)
-texture = ExtResource("4_map3k")
+texture = ExtResource("4_suxq5")
 
 [node name="NearForest" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(319, 182)
 motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearForest"]
-position = Vector2(640.5, 359)
+position = Vector2(1602, 357)
 scale = Vector2(5.33611, 4.49167)
-texture = ExtResource("5_0uav4")
+texture = ExtResource("5_mkvet")
 
 [node name="ParallaxForeGround" type="ParallaxBackground" parent="."]
 layer = 1
 
 [node name="ClosestTrees" type="ParallaxLayer" parent="ParallaxForeGround"]
-visible = false
 position = Vector2(319, 182)
 motion_scale = Vector2(2, 0)
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxForeGround/ClosestTrees"]
 position = Vector2(640.5, 359)
 scale = Vector2(5.33611, 4.49167)
-texture = ExtResource("6_1v05r")
+texture = ExtResource("6_75qb5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1030, 895)
