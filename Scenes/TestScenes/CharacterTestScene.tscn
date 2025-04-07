@@ -12,7 +12,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_6nyuh")]
 position = Vector2(1030, 895)
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 
 [node name="GameTileMap" type="Node2D" parent="."]
 
@@ -49,12 +49,13 @@ motion_scale = Vector2(0.3, 0)
 motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearForest"]
-position = Vector2(1602, 357)
+position = Vector2(1602, 358)
 scale = Vector2(5.33611, 4.49167)
 texture = ExtResource("5_mkvet")
 
 [node name="ParallaxForeGround" type="ParallaxBackground" parent="."]
 layer = 1
+visible = false
 
 [node name="ClosestTrees" type="ParallaxLayer" parent="ParallaxForeGround"]
 position = Vector2(319, 182)
@@ -62,8 +63,8 @@ motion_scale = Vector2(2, 0)
 motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxForeGround/ClosestTrees"]
-position = Vector2(640.5, 359)
-scale = Vector2(5.33611, 4.49167)
+position = Vector2(1602, 358)
+scale = Vector2(5.33611, 4.5)
 texture = ExtResource("6_75qb5")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -2,12 +2,12 @@ extends State
 
 @export var idle_state: State
 @export var jump_state: State
+@export var fall_state: State
 
 var SPEED: float = 150.0
 
 func enter() -> void:
 	sprite.play("run")
-	
 
 func exit() -> void:
 	sprite.stop()
@@ -28,7 +28,9 @@ func process_physics(delta: float) -> State:
 	set_animation(character.velocity.x)
 	character.move_and_slide()
 	
-	if character.velocity.x == 0:
+	if !character.is_on_floor():
+		return fall_state
+	elif character.velocity.x == 0:
 		return idle_state
 	if Input.is_action_just_pressed("jump"):
 		#and (character.jump_count < character.max_jumps):

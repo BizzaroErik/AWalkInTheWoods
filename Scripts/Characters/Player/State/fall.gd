@@ -34,7 +34,9 @@ func process_physics(delta: float) -> State:
 		character.velocity.x = direction * horizontal_adjust
 	character.move_and_slide()
 	
-	if character.is_on_floor():
+	if character.velocity.x > 0.0 and character.is_on_floor():
+		return run_state
+	elif character.is_on_floor():
 		return idle_state
 	else:
 		return null

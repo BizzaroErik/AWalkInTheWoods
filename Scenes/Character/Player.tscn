@@ -262,6 +262,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_j3ry1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -279,15 +280,17 @@ frame_progress = 0.693798
 script = ExtResource("6_8w5o1")
 starting_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="state_machine" node_paths=PackedStringArray("run_state", "jump_state")]
+[node name="idle" type="Node" parent="state_machine" node_paths=PackedStringArray("run_state", "jump_state", "fall_state")]
 script = ExtResource("7_sbqnr")
 run_state = NodePath("../run")
 jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
 
-[node name="run" type="Node" parent="state_machine" node_paths=PackedStringArray("idle_state", "jump_state")]
+[node name="run" type="Node" parent="state_machine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
 script = ExtResource("8_4geyo")
 idle_state = NodePath("../idle")
 jump_state = NodePath("../jump")
+fall_state = NodePath("../fall")
 
 [node name="jump" type="Node" parent="state_machine" node_paths=PackedStringArray("idle_state", "run_state", "fall_state")]
 script = ExtResource("8_jjayt")
