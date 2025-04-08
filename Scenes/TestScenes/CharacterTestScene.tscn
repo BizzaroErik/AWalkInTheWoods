@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bv4k60r781nqj"]
+[gd_scene load_steps=9 format=4 uid="uid://bv4k60r781nqj"]
 
 [ext_resource type="PackedScene" uid="uid://djeiegsv2cmxm" path="res://Scenes/Character/Player.tscn" id="1_6nyuh"]
 [ext_resource type="TileSet" uid="uid://x72lwmjoqd1w" path="res://Assets/Tilesets/foreground_tile_set.tres" id="2_5tcfy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cnh27oxs64gap" path="res://Assets/Backgrounds/extended_far_forest.png" id="4_suxq5"]
 [ext_resource type="Texture2D" uid="uid://d0078pfbwast4" path="res://Assets/Backgrounds/extended_near_forest.png" id="5_mkvet"]
 [ext_resource type="Texture2D" uid="uid://ou4p25lbwlem" path="res://Assets/Backgrounds/extended_foreground.png" id="6_75qb5"]
+[ext_resource type="PackedScene" uid="uid://dsonhtybuvlsy" path="res://Scenes/Animals/Cat.tscn" id="8_q7lhj"]
 
 [node name="CharacterTestScene" type="Node2D"]
 
@@ -78,3 +79,7 @@ drag_left_margin = 0.71
 drag_top_margin = 1.0
 drag_right_margin = 0.86
 script = ExtResource("2_u6bu0")
+
+[node name="Cat" parent="." instance=ExtResource("8_q7lhj")]
+position = Vector2(955, 896)
+scale = Vector2(4, 4)
