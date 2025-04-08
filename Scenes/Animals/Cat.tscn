@@ -1,6 +1,7 @@
-[gd_scene load_steps=60 format=3 uid="uid://dsonhtybuvlsy"]
+[gd_scene load_steps=61 format=3 uid="uid://dsonhtybuvlsy"]
 
 [ext_resource type="Texture2D" uid="uid://hj6748eicnsf" path="res://Assets/SpriteSheets/Cat.png" id="1_dwywb"]
+[ext_resource type="Texture2D" uid="uid://dprqnlnixhj4h" path="res://Assets/SpriteSheets/cat_sprites-export.png" id="2_2vg8r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhlks"]
 radius = 6.0
@@ -86,20 +87,20 @@ region = Rect2(160, 256, 32, 32)
 atlas = ExtResource("1_dwywb")
 region = Rect2(192, 256, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g1c7j"]
-atlas = ExtResource("1_dwywb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pfng"]
+atlas = ExtResource("2_2vg8r")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s83ef"]
-atlas = ExtResource("1_dwywb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvs37"]
+atlas = ExtResource("2_2vg8r")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8r784"]
-atlas = ExtResource("1_dwywb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mknbu"]
+atlas = ExtResource("2_2vg8r")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a23ph"]
-atlas = ExtResource("1_dwywb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bgul"]
+atlas = ExtResource("2_2vg8r")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dscg3"]
@@ -309,24 +310,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g1c7j")
+"texture": SubResource("AtlasTexture_3pfng")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s83ef")
+"texture": SubResource("AtlasTexture_tvs37")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8r784")
+"texture": SubResource("AtlasTexture_mknbu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a23ph")
+"texture": SubResource("AtlasTexture_7bgul")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 4.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"idle2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -466,6 +462,6 @@ shape = SubResource("CapsuleShape2D_hhlks")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_wio63")
-animation = &"idle2"
-autoplay = "idle2"
-frame_progress = 0.847772
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.180677
