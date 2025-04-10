@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ToolManager="*res://Scripts/Global/tool_manager.gd"
+AnimalColorDictionary="*res://Scripts/Global/AnimalColorDictionary.gd"
 
 [display]
 

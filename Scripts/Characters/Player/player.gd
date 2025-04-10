@@ -11,7 +11,6 @@ var look_dir: Vector2 = Vector2.ZERO
 
 func _ready():
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	ToolManager.tool_selected.connect(on_tool_selected)
 	state_machine.init(self, sprite)
 
 func _unhandled_input(event):

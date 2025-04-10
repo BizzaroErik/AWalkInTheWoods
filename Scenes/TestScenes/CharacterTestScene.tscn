@@ -69,9 +69,10 @@ scale = Vector2(5.33611, 4.5)
 texture = ExtResource("6_75qb5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1030, 895)
+position = Vector2(1030, 1032)
 scale = Vector2(3, 3)
 offset = Vector2(0, -300)
+zoom = Vector2(2, 2)
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_vertical_enabled = true
@@ -81,5 +82,12 @@ drag_right_margin = 0.86
 script = ExtResource("2_u6bu0")
 
 [node name="Cat" parent="." instance=ExtResource("8_q7lhj")]
-position = Vector2(955, 896)
-scale = Vector2(4, 4)
+position = Vector2(711, 897)
+
+[node name="Cat2" parent="." instance=ExtResource("8_q7lhj")]
+position = Vector2(1167, 898)
+cat_color_scheme = 0
+
+[node name="Cat3" parent="." instance=ExtResource("8_q7lhj")]
+position = Vector2(1281, 851)
+cat_color_scheme = 2
