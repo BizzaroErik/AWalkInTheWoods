@@ -3,7 +3,7 @@ extends State
 @export var idle_state: State
 @export var run_state: State
 
-var horizontal_adjust: int = 100
+var horizontal_adjust: int = 300
 var max_speed: int = 8000
 var acceleration: int = 400
 var jump_height: int = 300

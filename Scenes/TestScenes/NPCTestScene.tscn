@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=4 uid="uid://1wjmcr6xw1df"]
+
+[ext_resource type="PackedScene" uid="uid://djeiegsv2cmxm" path="res://Scenes/Character/Player.tscn" id="1_ery7r"]
+[ext_resource type="TileSet" uid="uid://x72lwmjoqd1w" path="res://Assets/Tilesets/foreground_tile_set.tres" id="2_h5igj"]
+[ext_resource type="Texture2D" uid="uid://13kowwruupp5" path="res://Assets/Backgrounds/ParallaxWoods.png" id="3_k5a30"]
+[ext_resource type="Texture2D" uid="uid://cnh27oxs64gap" path="res://Assets/Backgrounds/extended_far_forest.png" id="4_ahofq"]
+[ext_resource type="Texture2D" uid="uid://d0078pfbwast4" path="res://Assets/Backgrounds/extended_near_forest.png" id="5_ji07n"]
+[ext_resource type="Texture2D" uid="uid://ou4p25lbwlem" path="res://Assets/Backgrounds/extended_foreground.png" id="6_7v4qs"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/camera_2d.gd" id="7_hjp2y"]
+[ext_resource type="PackedScene" uid="uid://dsonhtybuvlsy" path="res://Scenes/Animals/Cat.tscn" id="8_j1412"]
+
+[node name="NPCTestScene" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_ery7r")]
+position = Vector2(1036, 1025)
+scale = Vector2(3, 3)
+
+[node name="GameTileMap" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="GameTileMap"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-2, 0)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAPABAAAgAGAAEAAAAQABAAAgAGAAEAAAARABAAAgAGAAEAAAASABAAAgAGAAEAAAATABAAAgAGAAEAAAAUABAAAgAGAAEAAAAVABAAAgAGAAEAAAAWABAAAgAGAAEAAAAXABAAAgAGAAEAAAAYABAAAgAGAAEAAAAaABAAAgAGAAEAAAAbABAAAgAGAAEAAAAcABAAAgAGAAEAAAAcABEAAgAGAAIAAAAcABIAAgAGAAIAAAABABAAAgAFAAEAAAABABEAAgAFAAIAAAABABIAAgAFAAMAAAACABAAAgAGAAEAAAADABAAAgAGAAEAAAAEABAAAgAGAAEAAAAFABAAAgAGAAEAAAAGABAAAgAGAAEAAAAHABAAAgAGAAEAAAAIABAAAgAGAAEAAAAJABAAAgAGAAEAAAAKABAAAgAGAAEAAAALABAAAgAGAAEAAAAMABAAAgAGAAEAAAANABAAAgAGAAEAAAAOABAAAgAGAAEAAAAZABAAAgAGAAEAAAAdABAAAgAGAAEAAAAeABAAAgAGAAEAAAAfABAAAgAGAAEAAAAgABAAAgAGAAEAAAAhABAAAgAGAAEAAAAiABAAAgAGAAEAAAAjABAAAgAGAAEAAAAkABAAAgAGAAEAAAAlABAAAgAGAAEAAAAmABAAAgAGAAEAAAAnABAAAgAGAAEAAAAoABAAAgAGAAEAAAApABAAAgAGAAEAAAAqABAAAgAGAAEAAAArABAAAgAGAAEAAAAsABAAAgAGAAEAAAAtABAAAgAGAAEAAAAuABAAAgAGAAEAAAAvABAAAgAGAAEAAAAwABAAAgAGAAEAAAAxABAAAgAGAAEAAAAyABAAAgAGAAEAAAAzABAAAgAHAAEAAAAzABEAAgAHAAIAAAAzABIAAgAHAAIAAAAzABMAAgAHAAIAAAABABMAAgAFAAMAAAA=")
+tile_set = ExtResource("2_h5igj")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Moutain" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(320, 182)
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moutain"]
+position = Vector2(640, 358)
+scale = Vector2(5.33333, 4.5)
+texture = ExtResource("3_k5a30")
+
+[node name="FarForest" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(320, 182)
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarForest"]
+position = Vector2(1600, 358)
+scale = Vector2(5.33333, 4.5)
+texture = ExtResource("4_ahofq")
+
+[node name="NearForest" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(319, 182)
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearForest"]
+position = Vector2(1602, 358)
+scale = Vector2(5.33611, 4.49167)
+texture = ExtResource("5_ji07n")
+
+[node name="ParallaxForeGround" type="ParallaxBackground" parent="."]
+layer = 1
+visible = false
+
+[node name="ClosestTrees" type="ParallaxLayer" parent="ParallaxForeGround"]
+position = Vector2(319, 182)
+motion_scale = Vector2(2, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxForeGround/ClosestTrees"]
+position = Vector2(1602, 358)
+scale = Vector2(5.33611, 4.5)
+texture = ExtResource("6_7v4qs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1030, 1032)
+scale = Vector2(3, 3)
+offset = Vector2(0, -350)
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.71
+drag_top_margin = 1.0
+drag_right_margin = 0.86
+script = ExtResource("7_hjp2y")
+
+[node name="Cat" parent="." instance=ExtResource("8_j1412")]
+position = Vector2(1623, 1027)
+scale = Vector2(3, 3)
+cat_color_scheme = 0
+
+[node name="Cat2" parent="." instance=ExtResource("8_j1412")]
+visible = false
+position = Vector2(880, 1028)
+scale = Vector2(2.5, 2.5)
+
+[node name="Cat3" parent="." instance=ExtResource("8_j1412")]
+visible = false
+position = Vector2(970, 1029)
+scale = Vector2(3.5, 3.5)
+cat_color_scheme = 1

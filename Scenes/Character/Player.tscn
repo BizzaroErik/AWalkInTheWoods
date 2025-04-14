@@ -278,29 +278,29 @@ animation = &"idle"
 autoplay = "run_left"
 frame_progress = 0.693798
 
-[node name="state_machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+[node name="State" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("6_8w5o1")
-starting_state = NodePath("idle")
+starting_state = NodePath("Idle")
 
-[node name="idle" type="Node" parent="state_machine" node_paths=PackedStringArray("run_state", "jump_state", "fall_state")]
+[node name="Idle" type="Node" parent="State" node_paths=PackedStringArray("run_state", "jump_state", "fall_state")]
 script = ExtResource("7_sbqnr")
-run_state = NodePath("../run")
-jump_state = NodePath("../jump")
-fall_state = NodePath("../fall")
+run_state = NodePath("../Run")
+jump_state = NodePath("../Jump")
+fall_state = NodePath("../Fall")
 
-[node name="run" type="Node" parent="state_machine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
+[node name="Run" type="Node" parent="State" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
 script = ExtResource("8_4geyo")
-idle_state = NodePath("../idle")
-jump_state = NodePath("../jump")
-fall_state = NodePath("../fall")
+idle_state = NodePath("../Idle")
+jump_state = NodePath("../Jump")
+fall_state = NodePath("../Fall")
 
-[node name="jump" type="Node" parent="state_machine" node_paths=PackedStringArray("idle_state", "run_state", "fall_state")]
+[node name="Jump" type="Node" parent="State" node_paths=PackedStringArray("idle_state", "run_state", "fall_state")]
 script = ExtResource("8_jjayt")
-idle_state = NodePath("../idle")
-run_state = NodePath("../run")
-fall_state = NodePath("../fall")
+idle_state = NodePath("../Idle")
+run_state = NodePath("../Run")
+fall_state = NodePath("../Fall")
 
-[node name="fall" type="Node" parent="state_machine" node_paths=PackedStringArray("idle_state", "run_state")]
+[node name="Fall" type="Node" parent="State" node_paths=PackedStringArray("idle_state", "run_state")]
 script = ExtResource("10_ywr1m")
-idle_state = NodePath("../idle")
-run_state = NodePath("../run")
+idle_state = NodePath("../Idle")
+run_state = NodePath("../Run")

@@ -4,7 +4,7 @@ extends State
 @export var jump_state: State
 @export var fall_state: State
 
-var SPEED: float = 150.0
+var SPEED: float = 350.0
 
 func enter() -> void:
 	sprite.play("run")
