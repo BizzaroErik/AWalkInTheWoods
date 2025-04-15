@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://1wjmcr6xw1df"]
+[gd_scene load_steps=10 format=4 uid="uid://1wjmcr6xw1df"]
 
 [ext_resource type="PackedScene" uid="uid://djeiegsv2cmxm" path="res://Scenes/Character/Player.tscn" id="1_ery7r"]
 [ext_resource type="TileSet" uid="uid://x72lwmjoqd1w" path="res://Assets/Tilesets/foreground_tile_set.tres" id="2_h5igj"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://ou4p25lbwlem" path="res://Assets/Backgrounds/extended_foreground.png" id="6_7v4qs"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/camera_2d.gd" id="7_hjp2y"]
 [ext_resource type="PackedScene" uid="uid://dsonhtybuvlsy" path="res://Scenes/Animals/Cat.tscn" id="8_j1412"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nckvu"]
+vertices = PackedVector2Array(3264.67, 1038.99, 357.438, 1037, 369.578, 755.883, 3254.32, 722.109)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(360, 746, 3264, 712, 3275, 1049, 347, 1047)])
 
 [node name="NPCTestScene" type="Node2D"]
 y_sort_enabled = true
@@ -84,11 +89,6 @@ drag_top_margin = 1.0
 drag_right_margin = 0.86
 script = ExtResource("7_hjp2y")
 
-[node name="Cat" parent="." instance=ExtResource("8_j1412")]
-position = Vector2(1623, 1027)
-scale = Vector2(3, 3)
-cat_color_scheme = 0
-
 [node name="Cat2" parent="." instance=ExtResource("8_j1412")]
 visible = false
 position = Vector2(880, 1028)
@@ -99,3 +99,11 @@ visible = false
 position = Vector2(970, 1029)
 scale = Vector2(3.5, 3.5)
 cat_color_scheme = 1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_nckvu")
+
+[node name="Cat" parent="NavigationRegion2D" instance=ExtResource("8_j1412")]
+position = Vector2(1600, 1020)
+scale = Vector2(3, 3)
+cat_color_scheme = 0

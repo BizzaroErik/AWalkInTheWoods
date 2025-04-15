@@ -323,7 +323,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 position = Vector2(0, -1)
 collision_layer = 3
