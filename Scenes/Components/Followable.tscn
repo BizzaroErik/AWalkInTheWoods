@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm3o13xpotfcc"]
+
+[ext_resource type="Script" path="res://Scripts/Components/Followable.gd" id="1_m37lx"]
+
+[node name="Followable" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_m37lx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

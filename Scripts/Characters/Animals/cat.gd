@@ -4,9 +4,13 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state: Node = $State
+@onready var followable: Followable = $Followable
+
+var should_follow: bool = false
 
 func _ready() -> void:
 	set_colors()
+	followable.followable_activated.connect(on_follow_activated)
 	state.init(self, sprite)
 	
 func set_colors() -> void:
@@ -25,3 +29,6 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	state.process_frame(delta)
+
+func on_follow_activated() -> void:
+	should_follow = true
