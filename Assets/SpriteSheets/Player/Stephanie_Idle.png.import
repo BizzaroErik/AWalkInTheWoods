@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh0fqd24voldu"
-path="res://.godot/imported/Steph_Idol-Sheet.png-50a7cd5d006a26fad1d0ebfe7738aa0d.ctex"
+uid="uid://dyqxn65t35nre"
+path="res://.godot/imported/Stephanie_Idle.png-49c1d0ea5bb11ae95f303c58ee57af8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteSheets/Steph_Idol-Sheet.png"
-dest_files=["res://.godot/imported/Steph_Idol-Sheet.png-50a7cd5d006a26fad1d0ebfe7738aa0d.ctex"]
+source_file="res://Assets/SpriteSheets/Player/Stephanie_Idle.png"
+dest_files=["res://.godot/imported/Stephanie_Idle.png-49c1d0ea5bb11ae95f303c58ee57af8b.ctex"]
 
 [params]
 

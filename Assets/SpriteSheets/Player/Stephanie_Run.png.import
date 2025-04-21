@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccefd4opul54n"
-path="res://.godot/imported/Fall.png-8d2c3abb56bb944f80ee45de63ae3d7f.ctex"
+uid="uid://cs0xf3r7gehy7"
+path="res://.godot/imported/Stephanie_Run.png-6569b77f368f2e1d3fae2d710d93ebee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteSheets/Fall.png"
-dest_files=["res://.godot/imported/Fall.png-8d2c3abb56bb944f80ee45de63ae3d7f.ctex"]
+source_file="res://Assets/SpriteSheets/Player/Stephanie_Run.png"
+dest_files=["res://.godot/imported/Stephanie_Run.png-6569b77f368f2e1d3fae2d710d93ebee.ctex"]
 
 [params]
 

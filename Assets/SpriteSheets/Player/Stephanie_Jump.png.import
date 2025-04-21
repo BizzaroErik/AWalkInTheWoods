@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm8mp1p8xlfon"
-path="res://.godot/imported/Stephanie Sprite-01.png-303a4d15acc1f18431553941f5835bf3.ctex"
+uid="uid://b5n5vf8onrg17"
+path="res://.godot/imported/Stephanie_Jump.png-8e540e13702e9cdd2eea1f4ab31629b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteSheets/Stephanie Sprite-01.png"
-dest_files=["res://.godot/imported/Stephanie Sprite-01.png-303a4d15acc1f18431553941f5835bf3.ctex"]
+source_file="res://Assets/SpriteSheets/Player/Stephanie_Jump.png"
+dest_files=["res://.godot/imported/Stephanie_Jump.png-8e540e13702e9cdd2eea1f4ab31629b4.ctex"]
 
 [params]
 

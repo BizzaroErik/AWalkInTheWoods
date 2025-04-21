@@ -75,6 +75,7 @@ texture = ExtResource("6_sijgc")
 position = Vector2(1030, 1032)
 scale = Vector2(3, 3)
 offset = Vector2(0, -350)
+process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_vertical_enabled = true

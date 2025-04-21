@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpfg40ecxwact"
-path="res://.godot/imported/Idle.png-febb04daca9baf95100a76c936806b7f.ctex"
+uid="uid://bnpphq7wu5md1"
+path="res://.godot/imported/Stephanie_Fall.png-34737f77b5699960fdf057adfaa38365.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteSheets/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-febb04daca9baf95100a76c936806b7f.ctex"]
+source_file="res://Assets/SpriteSheets/Player/Stephanie_Fall.png"
+dest_files=["res://.godot/imported/Stephanie_Fall.png-34737f77b5699960fdf057adfaa38365.ctex"]
 
 [params]
 
