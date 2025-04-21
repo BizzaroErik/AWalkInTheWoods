@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=4 uid="uid://ccnmma2kv548a"]
+
+[ext_resource type="PackedScene" uid="uid://djeiegsv2cmxm" path="res://Scenes/Character/Player.tscn" id="1_xfqo0"]
+[ext_resource type="TileSet" uid="uid://x72lwmjoqd1w" path="res://Assets/Tilesets/foreground_tile_set.tres" id="2_bgg2g"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/camera_2d.gd" id="3_hixv4"]
+[ext_resource type="Texture2D" uid="uid://13kowwruupp5" path="res://Assets/Backgrounds/ParallaxWoods.png" id="3_p8jes"]
+[ext_resource type="Texture2D" uid="uid://cnh27oxs64gap" path="res://Assets/Backgrounds/extended_far_forest.png" id="4_udi4v"]
+[ext_resource type="Texture2D" uid="uid://d0078pfbwast4" path="res://Assets/Backgrounds/extended_near_forest.png" id="5_r7ame"]
+[ext_resource type="Texture2D" uid="uid://ou4p25lbwlem" path="res://Assets/Backgrounds/extended_foreground.png" id="6_886se"]
+[ext_resource type="PackedScene" uid="uid://bkabsu0xg85ok" path="res://Scenes/Text/WorldTextBubble.tscn" id="8_7j0ir"]
+[ext_resource type="PackedScene" uid="uid://dsonhtybuvlsy" path="res://Scenes/Animals/Cat.tscn" id="9_rhjre"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rt64l"]
+distance = -4.99998
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4anr4"]
+vertices = PackedVector2Array(3264.67, 1038.95, 102.758, 1026.03, 96.2422, 751.898, 3254.32, 722.094)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(86, 742, 3264, 712, 3275, 1049, 93, 1036)])
+
+[node name="DissolveTextTestScene" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_xfqo0")]
+position = Vector2(334, 1025)
+scale = Vector2(3, 3)
+
+[node name="GameTileMap" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="GameTileMap"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 2)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAPABAAAgAGAAEAAAAQABAAAgAGAAEAAAARABAAAgAGAAEAAAASABAAAgAGAAEAAAATABAAAgAGAAEAAAAUABAAAgAGAAEAAAAVABAAAgAGAAEAAAAWABAAAgAGAAEAAAAXABAAAgAGAAEAAAAYABAAAgAGAAEAAAAaABAAAgAGAAEAAAAbABAAAgAGAAEAAAAcABAAAgAGAAEAAAAcABEAAQAGAAIAAAAcABIAAQAGAAIAAAABABAAAQAGAAEAAAABABEAAQAGAAIAAAABABIAAQAGAAIAAAACABAAAgAGAAEAAAADABAAAgAGAAEAAAAEABAAAgAGAAEAAAAFABAAAgAGAAEAAAAGABAAAgAGAAEAAAAHABAAAgAGAAEAAAAIABAAAgAGAAEAAAAJABAAAgAGAAEAAAAKABAAAgAGAAEAAAALABAAAgAGAAEAAAAMABAAAgAGAAEAAAANABAAAgAGAAEAAAAOABAAAgAGAAEAAAAZABAAAgAGAAEAAAAdABAAAgAGAAEAAAAeABAAAgAGAAEAAAAfABAAAgAGAAEAAAAgABAAAgAGAAEAAAAhABAAAgAGAAEAAAAiABAAAgAGAAEAAAAjABAAAgAGAAEAAAAkABAAAgAGAAEAAAAlABAAAgAGAAEAAAAmABAAAgAGAAEAAAAnABAAAgAGAAEAAAAoABAAAgAGAAEAAAApABAAAgAGAAEAAAAqABAAAgAGAAEAAAArABAAAgAGAAEAAAAsABAAAgAGAAEAAAAtABAAAgAGAAEAAAAuABAAAgAGAAEAAAAvABAAAgAGAAEAAAAwABAAAgAGAAEAAAAxABAAAgAGAAEAAAAyABAAAgAGAAEAAAAzABAAAgAHAAEAAAAzABEAAgAHAAIAAAAzABIAAgAHAAIAAAAzABMAAgAHAAIAAAABABMAAQAGAAIAAAACABEAAQAGAAIAAAACABIAAQAGAAIAAAACABMAAQAGAAMAAAADABEAAQAGAAMAAAADABIAAQAGAAMAAAADABMAAQAGAAIAAAAEABEAAQAGAAIAAAAEABIAAQAGAAMAAAAEABMAAQAGAAIAAAAFABEAAQAGAAIAAAAFABIAAQAGAAMAAAAFABMAAQAGAAIAAAAGABEAAQAGAAIAAAAGABIAAQAGAAMAAAAGABMAAQAGAAIAAAAHABEAAQAGAAMAAAAHABIAAQAGAAMAAAAHABMAAQAGAAIAAAAIABEAAQAGAAIAAAAIABIAAQAGAAIAAAAIABMAAQAGAAIAAAAJABEAAQAGAAIAAAAJABIAAQAGAAIAAAAJABMAAQAGAAIAAAAKABEAAQAGAAIAAAAKABIAAQAGAAIAAAAKABMAAQAGAAIAAAALABEAAQAGAAIAAAALABIAAQAGAAIAAAALABMAAQAGAAIAAAAMABEAAQAGAAIAAAAMABIAAQAGAAIAAAAMABMAAQAGAAIAAAANABEAAQAGAAIAAAANABIAAQAGAAIAAAANABMAAQAGAAIAAAAOABEAAQAGAAIAAAAOABIAAQAGAAIAAAAOABMAAQAGAAIAAAAPABEAAQAGAAIAAAAPABIAAQAGAAIAAAAPABMAAQAGAAIAAAAQABEAAQAGAAIAAAAQABIAAQAGAAIAAAAQABMAAQAGAAIAAAARABEAAQAGAAIAAAARABIAAQAGAAIAAAARABMAAQAGAAIAAAASABEAAQAGAAIAAAASABIAAQAGAAIAAAASABMAAQAGAAIAAAATABEAAQAGAAMAAAATABIAAQAGAAMAAAATABMAAQAGAAIAAAAUABEAAQAGAAMAAAAUABIAAQAGAAIAAAAUABMAAQAGAAIAAAAVABEAAQAGAAMAAAAVABIAAQAGAAIAAAAVABMAAQAGAAIAAAAWABEAAQAGAAMAAAAWABIAAQAGAAMAAAAWABMAAQAGAAIAAAAXABEAAQAGAAMAAAAXABIAAQAGAAIAAAAXABMAAQAGAAIAAAAYABEAAQAGAAMAAAAYABIAAQAGAAIAAAAYABMAAQAGAAIAAAAZABEAAQAGAAIAAAAZABIAAQAGAAMAAAAZABMAAQAGAAIAAAAaABEAAQAGAAMAAAAaABIAAQAGAAIAAAAaABMAAQAGAAIAAAAbABEAAQAGAAIAAAAbABIAAQAGAAIAAAAbABMAAQAGAAIAAAAcABMAAQAGAAIAAAAdABEAAQAGAAIAAAAdABIAAQAGAAIAAAAdABMAAQAGAAIAAAAeABEAAQAGAAIAAAAeABIAAQAGAAIAAAAeABMAAQAGAAMAAAAfABEAAQAGAAIAAAAfABIAAQAGAAIAAAAfABMAAQAGAAMAAAAgABEAAQAGAAIAAAAgABIAAQAGAAIAAAAgABMAAQAGAAMAAAAhABEAAQAGAAIAAAAhABIAAQAGAAIAAAAhABMAAQAGAAMAAAAiABEAAQAGAAIAAAAiABIAAQAGAAIAAAAiABMAAQAGAAIAAAAjABEAAQAGAAIAAAAjABIAAQAGAAIAAAAjABMAAQAGAAIAAAAkABEAAQAGAAIAAAAkABIAAQAGAAIAAAAkABMAAQAGAAIAAAAlABEAAQAGAAIAAAAlABIAAQAGAAMAAAAlABMAAQAGAAIAAAAmABEAAQAGAAIAAAAmABIAAQAGAAMAAAAmABMAAQAGAAIAAAAnABEAAQAGAAIAAAAnABIAAQAGAAMAAAAnABMAAQAGAAIAAAAoABEAAQAGAAIAAAAoABIAAQAGAAMAAAAoABMAAQAGAAIAAAApABEAAQAGAAIAAAApABIAAQAGAAMAAAApABMAAQAGAAIAAAAqABEAAQAGAAIAAAAqABIAAQAGAAIAAAAqABMAAQAGAAIAAAArABEAAQAGAAIAAAArABIAAQAGAAIAAAArABMAAQAGAAIAAAAsABEAAQAGAAMAAAAsABIAAQAGAAIAAAAsABMAAQAGAAIAAAAtABEAAQAGAAIAAAAtABIAAQAGAAIAAAAtABMAAQAGAAIAAAAuABEAAQAGAAIAAAAuABIAAQAGAAMAAAAuABMAAQAGAAIAAAAvABEAAQAGAAIAAAAvABIAAQAGAAIAAAAvABMAAQAGAAIAAAAwABEAAQAGAAIAAAAwABIAAQAGAAMAAAAwABMAAQAGAAIAAAAxABEAAQAGAAIAAAAxABIAAQAGAAIAAAAxABMAAQAGAAIAAAAyABEAAQAGAAIAAAAyABIAAQAGAAIAAAAyABMAAQAGAAIAAAAAABAAAQAFAAEAAAAAABEAAQAFAAIAAAAAABIAAQAFAAMAAAAAABMAAQAFAAMAAAA=")
+tile_set = ExtResource("2_bgg2g")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Moutain" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(320, 182)
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moutain"]
+position = Vector2(640, 358)
+scale = Vector2(5.33333, 4.5)
+texture = ExtResource("3_p8jes")
+
+[node name="FarForest" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(320, 182)
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarForest"]
+position = Vector2(1600, 358)
+scale = Vector2(5.33333, 4.5)
+texture = ExtResource("4_udi4v")
+
+[node name="NearForest" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(319, 182)
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearForest"]
+position = Vector2(1602, 358)
+scale = Vector2(5.33611, 4.49167)
+texture = ExtResource("5_r7ame")
+
+[node name="ParallaxForeGround" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="ClosestTrees" type="ParallaxLayer" parent="ParallaxForeGround"]
+position = Vector2(319, 182)
+motion_scale = Vector2(2, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxForeGround/ClosestTrees"]
+position = Vector2(1602, 358)
+scale = Vector2(5.33611, 4.5)
+texture = ExtResource("6_886se")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1030, 1032)
+scale = Vector2(3, 3)
+offset = Vector2(0, -350)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.71
+drag_top_margin = 1.0
+drag_right_margin = 0.86
+script = ExtResource("3_hixv4")
+
+[node name="TextBoxMessage" parent="." instance=ExtResource("8_7j0ir")]
+offset_left = 1931.0
+offset_top = 589.0
+offset_right = 1931.0
+offset_bottom = 589.0
+
+[node name="WorldBounds" type="Node" parent="."]
+
+[node name="LeftBounded" type="StaticBody2D" parent="WorldBounds"]
+position = Vector2(-166, 69)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/LeftBounded"]
+position = Vector2(366, -176)
+shape = SubResource("WorldBoundaryShape2D_rt64l")
+
+[node name="RightBounded" type="StaticBody2D" parent="WorldBounds"]
+position = Vector2(3309, 817)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/RightBounded"]
+position = Vector2(45, -8)
+shape = SubResource("WorldBoundaryShape2D_rt64l")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_4anr4")
+
+[node name="Earl" parent="NavigationRegion2D" instance=ExtResource("9_rhjre")]
+position = Vector2(39.0001, 1020)
+scale = Vector2(3.5, 3.5)
+cat_color_scheme = 1
+
+[node name="Bunny" parent="NavigationRegion2D" instance=ExtResource("9_rhjre")]
+position = Vector2(2056, 1028)
+scale = Vector2(3, 3)
+
+[node name="Pep" parent="NavigationRegion2D" instance=ExtResource("9_rhjre")]
+position = Vector2(2860, 1029)
+scale = Vector2(3, 3)
+cat_color_scheme = 0

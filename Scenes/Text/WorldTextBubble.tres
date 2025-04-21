@@ -1,0 +1,59 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://c76lud8kdmsk8"]
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_n4e0r"]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_coo7u"]
+parameter_name = "Dissolve"
+hint = 1
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3iamk"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1exam"]
+noise = SubResource("FastNoiseLite_3iamk")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_twkun"]
+output_port_for_preview = 1
+expanded_output_ports = [0]
+texture = SubResource("NoiseTexture2D_1exam")
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float Dissolve : hint_range(0, 1) = 1;
+uniform sampler2D tex_frg_4;
+
+
+
+void fragment() {
+// FloatParameter:3
+	float n_out3p0 = Dissolve;
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+	float n_out4p1 = n_out4p0.r;
+
+
+// Step:2
+	float n_out2p0 = step(n_out3p0, n_out4p1);
+
+
+// Output:0
+	COLOR.a = n_out2p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeStep_n4e0r")
+nodes/fragment/2/position = Vector2(-240, 340)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFloatParameter_coo7u")
+nodes/fragment/3/position = Vector2(-960, 60)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_twkun")
+nodes/fragment/4/position = Vector2(-1480, 620)
+nodes/fragment/connections = PackedInt32Array(4, 1, 2, 1, 3, 0, 2, 0, 2, 0, 0, 1)

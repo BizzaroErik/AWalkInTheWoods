@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkabsu0xg85ok"]
+
+[ext_resource type="Shader" uid="uid://c76lud8kdmsk8" path="res://Scenes/Text/WorldTextBubble.tres" id="1_jj7h4"]
+[ext_resource type="FontVariation" uid="uid://dpwsplxtaq1nt" path="res://Assets/UI/Text/zx_gona_bold.tres" id="1_wjs5r"]
+[ext_resource type="Script" path="res://Scripts/Text/world_text_bubble.gd" id="2_ku565"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhtux"]
+shader = ExtResource("1_jj7h4")
+shader_parameter/Dissolve = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_kf7m6"]
+font = ExtResource("1_wjs5r")
+font_size = 54
+font_color = Color(0.0666667, 0.137255, 0.0941176, 1)
+outline_size = 4
+outline_color = Color(0.745098, 0.862745, 0.498039, 1)
+shadow_size = 6
+shadow_color = Color(0.301961, 0.501961, 0.380392, 1)
+shadow_offset = Vector2(7, 3)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_qhtux")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -499.0
+offset_top = -61.0
+offset_right = 461.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ku565")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4293918721
+size = Vector2i(1400, 160)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -24.0
+offset_right = 432.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Happy Birthday Stephanie!"
+label_settings = SubResource("LabelSettings_kf7m6")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
